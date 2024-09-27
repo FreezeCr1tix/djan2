@@ -1,0 +1,14 @@
+{% extends 'default.html' %}
+
+{% block content %}
+<h1>Список новостей</h1>
+<ul>
+    {% for news in news_list %}
+        <li>
+            <h3><a href="{% url 'news_detail' news.pk %}">{{ news.censored_title }}</a></h3>
+            <p>{{ news.date_published }}</p>
+            <p>{{ news.short_text }}</p>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
